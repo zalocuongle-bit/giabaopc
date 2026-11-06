@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@layer base {
+  @media print {
+    body {
+      background: #fff !important;
+      color: #000 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* Hide everything except the receipt during print */
+    body * {
+      visibility: hidden;
+    }
+
+    #printable-receipt,
+    #printable-receipt * {
+      visibility: visible;
+    }
+
+    #printable-receipt {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 4mm !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
+}

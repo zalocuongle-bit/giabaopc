@@ -1,0 +1,6 @@
+{
+  "name": "POS Master - Quản Lý Bán Hàng & Kho Hàng Chuyên Nghiệp",
+  "description": "Hệ thống quản lý bán hàng thông minh, quản lý sản phẩm, tồn kho, xuất nhập Excel, in hóa đơn tự động và báo cáo doanh thu trực quan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

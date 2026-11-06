@@ -1,0 +1,77 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Thông tin sản phẩm trong kho hàng",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "barcode": { "type": "string", "maxLength": 100 },
+        "name": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "maxLength": 100 },
+        "costPrice": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "stock": { "type": "number" },
+        "minStock": { "type": "number" },
+        "unit": { "type": "string", "maxLength": 50 },
+        "imageUrl": { "type": "string", "maxLength": 1000 },
+        "description": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "sellingPrice", "stock"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Đơn hàng bán ra tại quầy POS",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "orderNumber": { "type": "string", "maxLength": 50 },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "discount": { "type": "number" },
+        "total": { "type": "number" },
+        "customerName": { "type": "string", "maxLength": 100 },
+        "customerPhone": { "type": "string", "maxLength": 50 },
+        "paymentMethod": { "type": "string", "maxLength": 50 },
+        "cashGiven": { "type": "number" },
+        "changeDue": { "type": "number" },
+        "cashierName": { "type": "string", "maxLength": 100 },
+        "status": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["orderNumber", "items", "total", "paymentMethod"]
+    },
+    "StoreSettings": {
+      "title": "StoreSettings",
+      "description": "Cấu hình cửa hàng và thông tin in hóa đơn",
+      "type": "object",
+      "properties": {
+        "storeName": { "type": "string", "maxLength": 200 },
+        "storePhone": { "type": "string", "maxLength": 50 },
+        "storeAddress": { "type": "string", "maxLength": 300 },
+        "receiptFooter": { "type": "string", "maxLength": 300 },
+        "printerFormat": { "type": "string", "maxLength": 20 },
+        "autoPrintReceipt": { "type": "boolean" },
+        "bankName": { "type": "string", "maxLength": 50 },
+        "bankAccount": { "type": "string", "maxLength": 50 },
+        "bankAccountName": { "type": "string", "maxLength": 100 }
+      }
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Kho dữ liệu sản phẩm"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Danh sách hóa đơn bán hàng"
+    },
+    "/settings/{settingId}": {
+      "schema": "StoreSettings",
+      "description": "Cấu hình cửa hàng"
+    }
+  }
+}
